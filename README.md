@@ -1,4 +1,4 @@
-# 🤖 Tic-Tac-Toe AI — Minimax Algorithm
+#  Tic-Tac-Toe AI — Minimax Algorithm
 ### CodSoft AI Internship | Task 2
 
 ---

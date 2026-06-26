@@ -1,0 +1,187 @@
+/* ============================================================
+   Tic-Tac-Toe AI  |  style.css
+   CodSoft Internship — AI Track
+   ============================================================ */
+
+/* ---------- Reset & base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #312e81, #0f766e);
+  background-size: 400% 400%;
+  animation: bgShift 15s ease infinite;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* ---------- Animated gradient background ---------- */
+@keyframes bgShift {
+  0%   { background-position: 0   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0   50%; }
+}
+
+/* ---------- Floating particles ---------- */
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.25;
+  animation: float 12s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to   { transform: translateY(-100px); }
+}
+
+/* ---------- Card container ---------- */
+.container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- AI avatar ---------- */
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: auto;
+  background: linear-gradient(135deg, #6366f1, #14b8a6);
+  position: relative;
+  animation: updown 3s ease-in-out infinite;
+}
+
+@keyframes updown {
+  50% { transform: translateY(-8px); }
+}
+
+/* Eyes */
+.eye {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 32px;
+  animation: blink 4s ease-in-out infinite;
+}
+.left  { left:  24px; }
+.right { right: 24px; }
+
+@keyframes blink {
+  48%, 52% { height: 2px; }
+}
+
+/* ---------- Heading ---------- */
+h2 {
+  margin: 10px 0;
+}
+
+/* ---------- Status text ---------- */
+#status {
+  margin: 10px;
+  font-weight: bold;
+}
+
+/* ---------- Board grid ---------- */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin: 15px auto;
+}
+
+/* ---------- Individual cells ---------- */
+.cell {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* X — purple glow */
+.x {
+  color: #a78bfa;
+  text-shadow: 0 0 15px #a78bfa;
+}
+
+/* O — teal glow */
+.o {
+  color: #2dd4bf;
+  text-shadow: 0 0 15px #2dd4bf;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  background: linear-gradient(135deg, #6366f1, #14b8a6);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* ---------- Score cards ---------- */
+.score {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 10px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* ---------- Winner banner ---------- */
+#winner {
+  color: #22c55e;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 8px;
+  min-height: 28px;
+}
+
+/* ---------- Confetti canvas (full-screen overlay) ---------- */
+canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
