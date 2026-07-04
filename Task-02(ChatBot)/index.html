@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARIA — Royal AI Chatbot</title>
+    <meta name="description" content="ARIA: Adaptive Rule-based Intelligent Assistant — a rule-based NLP chatbot with a royal UI." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- Aurora Background -->
+    <div class="aurora" aria-hidden="true"></div>
+
+    <!-- ── APP ROOT ──────────────────────────────────────── -->
+    <div id="app">
+        <div class="chat-container" role="main" aria-label="ARIA Chatbot">
+
+            <!-- ── HEADER ──────────────────────────────────── -->
+            <header class="chat-header">
+                <div class="header-avatar" aria-hidden="true">
+                    🤖
+                    <span class="status-orb" title="Online"></span>
+                </div>
+
+                <div class="header-info">
+                    <div class="header-name">ARIA — AI Assistant</div>
+                    <div class="header-status">● Active &amp; Listening</div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="header-stat" title="Messages exchanged">
+                        💬 <strong id="message-count">0</strong>
+                    </div>
+                    <button class="icon-btn" id="sound-toggle" title="Toggle sound" aria-label="Toggle sound">🔊</button>
+                    <button class="icon-btn" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark mode">☀️</button>
+                    <button class="icon-btn" id="clear-btn" title="Clear chat" aria-label="Clear chat history">🗑️</button>
+                </div>
+            </header>
+
+            <!-- ── QUICK REPLIES ────────────────────────── -->
+            <nav class="quick-replies" aria-label="Quick reply suggestions">
+                <button class="quick-btn" data-query="Tell me a joke">😄 Joke</button>
+                <button class="quick-btn" data-query="What time is it?">⏰ Time</button>
+                <button class="quick-btn" data-query="What is today's date?">📅 Date</button>
+                <button class="quick-btn" data-query="Tell me a fun fact">🌟 Fun Fact</button>
+                <button class="quick-btn" data-query="Who are you?">🤖 About</button>
+                <button class="quick-btn" data-query="Calculate 25 * 48">🔢 Math</button>
+                <button class="quick-btn" data-query="What can you do?">💡 Help</button>
+            </nav>
+
+            <!-- ── MESSAGES ──────────────────────────────── -->
+            <section id="chat-messages" aria-live="polite" aria-label="Chat messages">
+                <!-- Typing indicator (hidden by default) -->
+                <div id="typing-indicator" aria-label="ARIA is typing" role="status">
+                    <div class="typing-bubble">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── INPUT AREA ────────────────────────────── -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <input type="text" id="user-input" placeholder="Type a message to ARIA…" maxlength="300" autocomplete="off" spellcheck="true" aria-label="Message input" />
+                    <button id="send-btn" disabled aria-label="Send message" title="Send (Enter)">
+            ➤
+          </button>
+                </div>
+                <div class="input-meta">
+                    <span class="char-counter"><span id="char-count">0</span>/300</span>
+                    <span class="input-hint">Press <kbd>Enter</kbd> to send</span>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- .chat-container -->
+    </div>
+    <!-- #app -->
+
+    <!-- ── SCRIPTS ──────────────────────────────────────── -->
+    <!-- 1. Backend engine (rule-based NLP) -->
+    <script src="backend/chatbot_engine.js"></script>
+    <!-- 2. Frontend application logic -->
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
